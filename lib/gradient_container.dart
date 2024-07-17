@@ -1,26 +1,30 @@
+import 'package:dice_app/dice_roller.dart';
 import 'package:flutter/material.dart';
+// import 'package:dice_app/styled_text.dart';
+
+const gradientStart = Alignment.topLeft;
+const gradientEnd = Alignment.bottomRight;
+
+
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.from, this.to, {super.key});
+
+  final Color from;
+  final Color to;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.indigo, Colors.blue],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          colors: [from, to],
+          begin: gradientStart,
+          end: gradientEnd,
         ),
       ),
       child: const Center(
-        child: Text(
-          "Flutter Oolala",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 28,
-          ),
-        ),
+        child: DiceRoller(),
       ),
     );
   }
